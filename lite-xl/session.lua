@@ -1,0 +1,1 @@
+return {recents={[3]="/home/pedroh/Fontes/vision2/indiky-web",[1]="/home/pedroh/.config/lite-xl",[2]="/home/pedroh/Fontes/vision-web",[4]="/home/pedroh/Fontes/vision2"}, window={[1]=1366,[2]=699,[3]=0,[4]=69,["n"]=4}, window_mode="maximized", previous_find={[1]="productSystem"}, previous_replace={}}
