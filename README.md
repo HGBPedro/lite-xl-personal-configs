@@ -6,3 +6,4 @@ meson
 ninja
 cmake
 lua
+unzip
