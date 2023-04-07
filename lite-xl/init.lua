@@ -12,15 +12,16 @@ local lsp = require "plugins.lsp"
 
 ------------------------------ Themes ----------------------------------------
 
--- light theme:
-core.reload_module("colors.monodark")
+core.reload_module("colors.silmarillion")
 
 --------------------------- Key bindings -------------------------------------
 
 -- key binding:
 keymap.add { ["ctrl+q"] = "core:quit" }
 keymap.add({ ["ctrl+,"] = "core:open-user-module"})
--- keymap.add({ ["ctrl+~"] = "git-blame:toggle" })
+keymap.add({ ["ctrl+alt+g"] = "git-blame:toggle" })
+keymap.add({ ["ctrl+alt+-"] = "lsp:restart-servers" })
+keymap.add({ ["ctrl+shift+\\"] = "treeview:toggle-focus" })
 
 -- overwritten bindings
 keymap.add({ ["ctrl+pageup"] = "root:switch-to-previous-tab" }, true)
@@ -30,8 +31,8 @@ keymap.add({ ["ctrl+pagedown"] = "root:switch-to-next-tab" }, true)
 
 -- customize fonts:
 -- style.font = renderer.font.load(DATADIR .. "/fonts/FiraSans-Regular.ttf", 14 * SCALE)
-style.code_font = renderer.font.load(USERDIR .. "/fonts/Fira-Code-Regular.ttf", 11 * SCALE)
---
+style.code_font = renderer.font.load(USERDIR .. "/fonts/Fira-Code-Regular.ttf", 13 * SCALE)
+
 -- DATADIR is the location of the installed Lite XL Lua code, default color
 -- schemes and fonts.
 -- USERDIR is the location of the Lite XL configuration directory.
@@ -59,7 +60,8 @@ style.code_font = renderer.font.load(USERDIR .. "/fonts/Fira-Code-Regular.ttf", 
 ------------------------------ Plugins ----------------------------------------
 
 -- enable or disable plugin loading setting config entries:
--- lintplus.load({"luacheck"})
+
+lintplus.load("php")
 lintplus.setup.lint_on_doc_load()
 lintplus.setup.lint_on_doc_save()
 
@@ -68,10 +70,14 @@ lspconfig.tsserver.setup {
   file_patterns = { "%.jsx?$", "%.cjs$", "%.mjs$", "%.tsx?$", "%.ts$" },
   settings = {
     tsserver = {
+      -- path = "~/.asdf/installs/nodejs/16.10.0/lib/node_modules/eslint_d/lib/linter.js",
       path = "~/.asdf/installs/nodejs/16.10.0/lib/node_modules/typescript/lib/typescript.js",
     }
   },
 }
+
+
+lspconfig.intelephense.setup()
 
 -- Configs for Git blame
 config.plugins.gitblame = {
@@ -88,7 +94,7 @@ config.plugins.gitblame = {
 
 -- enable plugins.trimwhitespace, otherwise it is disabled by default:
 -- config.plugins.trimwhitespace = true
---
+
 -- disable detectindent, otherwise it is enabled by default
 config.plugins.detectindent = false
 
