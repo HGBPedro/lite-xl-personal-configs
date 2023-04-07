@@ -1,1 +1,0 @@
-return { path = "/home/pedroh/Fontes/vision2/indiky-web", documents = {["active_view"]=1,["type"]="leaf",["views"]={[1]={["scroll"]={["x"]=0,["to"]={["x"]=0,["y"]=0},["y"]=0},["module"]="core.emptyview",["type"]="view",["active"]=true}}}, directories = {} }
